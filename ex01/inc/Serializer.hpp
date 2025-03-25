@@ -1,21 +1,16 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ahusic <ahusic@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/20 23:52:57 by ahusic            #+#    #+#             */
-/*   Updated: 2025/03/21 00:10:03 by ahusic           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #pragma once
 
 #include <iostream>
 #include <cstdint>
-
+#include "Data.hpp"
 class Serializer
 {
-	
-}
+public:
+	Serializer() = delete;
+	Serializer(const Serializer &other) = delete;
+	Serializer &operator=(const Serializer &other) = delete;
+	~Serializer() = delete;
+
+	static uintptr_t	serialize(Data* ptr);
+	static Data*		deserialize(uintptr_t raw);
+};
