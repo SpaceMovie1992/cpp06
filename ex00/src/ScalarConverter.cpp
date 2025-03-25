@@ -6,7 +6,7 @@
 /*   By: ahusic <ahusic@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:23:16 by ahusic            #+#    #+#             */
-/*   Updated: 2025/03/20 23:35:12 by ahusic           ###   ########.fr       */
+/*   Updated: 2025/03/25 16:34:56 by ahusic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,16 @@ void ScalarConverter::floatConvert(const std::string& input)
 			std::cout << "char: impossible\nint: impossible" << std::endl;
 		else
 		{
-			if (f > 127 || f < 0)
+			if (std::truncf(f) != f || f > 127 || f < 0)
 				std::cout << "char: impossible" << std::endl;
 			else if (f < 32 || f == 127)
 				std::cout << "char: Non displayable" << std::endl;
 			else
 				std::cout << "char: " << static_cast<char>(f) << std::endl;
-			std::cout << "int: " << static_cast<int>(f) << std::endl;
+			if (std::truncf(f) != f)
+				std::cout << "int: impossible" << std::endl;
+			else
+				std::cout << "int: " << static_cast<int>(f) << std::endl;
 		}
 		std::cout << "float: " << f << "f" << std::endl;
 		std::cout << "double: " << static_cast<double>(f) << std::endl;
@@ -86,13 +89,16 @@ void ScalarConverter::doubleConvert(const std::string& input)
 			std::cout << "char: impossible\nint: impossible" << std::endl;
 		else
 		{
-			if (d > 127 || d < 0)
+			if (std::truncf(d) != d || d > 127 || d < 0)
 				std::cout << "char: impossible" << std::endl;
 			else if (d < 32 || d == 127)
 				std::cout << "char: Non displayable" << std::endl;
 			else
 				std::cout << "char: " << static_cast<char>(d) << std::endl;
-			std::cout << "int: " << static_cast<int>(d) << std::endl;
+			if (std::truncf(d) != d)
+				std::cout << "int: impossible" << std::endl;
+			else
+				std::cout << "int: " << static_cast<int>(d) << std::endl;
 		}
 		std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
 		std::cout << "double: " << d << std::endl;

@@ -6,7 +6,7 @@
 /*   By: ahusic <ahusic@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:39:20 by ahusic            #+#    #+#             */
-/*   Updated: 2025/03/20 23:13:04 by ahusic           ###   ########.fr       */
+/*   Updated: 2025/03/25 16:23:50 by ahusic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <cmath>
 
 enum Type {
 		INT,
