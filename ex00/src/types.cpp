@@ -6,7 +6,7 @@
 /*   By: ahusic <ahusic@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 16:41:24 by ahusic            #+#    #+#             */
-/*   Updated: 2025/03/24 22:59:17 by ahusic           ###   ########.fr       */
+/*   Updated: 2025/04/03 22:48:26 by ahusic           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 bool isChar(const std::string& input)
 {
-	if (input.length() == 1 && isprint(input[0]))
+	if (input.length() == 1 && !isdigit(input[0]))
 		return true;
 	return false;
 }
