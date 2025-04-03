@@ -54,40 +54,39 @@ void identify(Base& p)
 }
 
 int main() {
-    std::srand(static_cast<unsigned int>(std::time(NULL)));
+	std::srand(static_cast<unsigned int>(std::time(NULL)));
 
-    std::cout << "===== Random Testing =====" << std::endl;
-    for (int i = 1; i <= 3; i++) {
-        std::cout << "Test " << i << ":" << std::endl;
-        
-        Base *randomBase = generate();
-        identify(randomBase);
-        identify(*randomBase);
-        delete randomBase;
+	std::cout << "===== Random Testing =====" << std::endl;
+	for (int i = 1; i <= 3; i++) {
+		std::cout << "Test " << i << ":" << std::endl;
 
-        std::cout << "-------------------------" << std::endl;
-    }
+		Base *randomBase = generate();
+		identify(randomBase);
+		identify(*randomBase);
+		delete randomBase;
 
-    std::cout << "\n===== Manual Testing =====" << std::endl;
-    Base *manualBase = new A;
-    identify(manualBase);
-    identify(*manualBase);
-    delete manualBase;
+		std::cout << "-------------------------" << std::endl;
+	}
 
-    std::cout << "\n===== Bad Casting Test =====" << std::endl;
-    Base *badCastBase = new B;
+	std::cout << "\n===== Manual Testing =====" << std::endl;
+	Base *manualBase = new A;
+	identify(manualBase);
+	identify(*manualBase);
+	delete manualBase;
 
-    try {
-        (void)dynamic_cast<A&>(*badCastBase);
-    } catch (std::bad_cast &) {
-        std::cout << "Caught bad_cast exception using reference cast." << std::endl;
-    }
+	std::cout << "\n===== Bad Casting Test =====" << std::endl;
+	Base *badCastBase = new B;
 
-    if (!dynamic_cast<A*>(badCastBase)) {
-        std::cout << "Caught bad_cast using pointer cast." << std::endl;
-    }
+	try {
+		(void)dynamic_cast<A&>(*badCastBase);
+	} catch (std::bad_cast &) {
+		std::cout << "Caught bad_cast exception using reference cast." << std::endl;
+	}
 
-    delete badCastBase;
+	if (!dynamic_cast<A*>(badCastBase)) {
+		std::cout << "Caught bad_cast using pointer cast." << std::endl;
+	}
 
-    return 0;
+	delete badCastBase;
+	return 0;
 }
